@@ -35,7 +35,8 @@ def update():
             count += g.node[j]['state']
         ratio = count / (g.degree(i) + 1.0)
         state = 1 if ratio > .5 else 0
-        state = 1 if random() < prob else state
+        if random() < prob:
+            state =  0 if state else 1
         nextg.node[i]['state'] = state
     g, nextg = nextg, g
 
